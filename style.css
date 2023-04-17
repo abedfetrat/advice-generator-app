@@ -1,0 +1,93 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  height: max-content;
+  padding: 16px;
+  font-family: "Manrope", sans-serif;
+  background-color: hsl(218, 23%, 16%);
+  color: hsl(193, 38%, 86%);
+}
+
+main {
+  position: relative;
+  display: block;
+  width: min(100%, 540px);
+  margin-bottom: 30px;
+  padding: 40px 24px 70px;
+  border-radius: 15px;
+  background-color: hsl(217, 19%, 24%);
+  text-align: center;
+}
+
+p {
+  font-size: 0.875rem;
+  letter-spacing: 2px;
+  color: hsl(150, 100%, 66%);
+}
+
+h1 {
+  margin-top: 24px;
+  font-size: 1.75rem;
+}
+
+.divider {
+  height: 16px;
+  margin-top: 32px;
+  background: url("images/pattern-divider-mobile.svg") no-repeat center;
+}
+
+@keyframes diceRoll {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+#dice {
+  cursor: pointer;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -30px;
+  display: grid;
+  place-items: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 99999px;
+  border: none;
+  background-color: hsl(150, 100%, 66%);
+  transform-origin: 0% 50%;
+  transition: scale 120ms ease;
+}
+
+#dice:hover {
+  scale: 1.1;
+}
+
+#dice::before {
+  content: "";
+  display: block;
+  width: 24px;
+  height: 24px;
+  background: url("images/icon-dice.svg") no-repeat center;
+}
+
+#dice.animate::before {
+  animation: diceRoll 800ms ease;
+}
